@@ -140,13 +140,15 @@
       INTEGER, PARAMETER :: outGrp_NA = 500, outGrp_A = 501,
      2   outGrp_Y = 502, outGrp_D = 503, outGrp_WSS = 504,
      3   outGrp_vort = 505, outGrp_eFlx = 506, outGrp_hFlx = 507,
-     4   outGrp_absV = 508, outGrp_stInv = 509, outGrp_vortex = 510
+     4   outGrp_absV = 508, outGrp_stInv = 509, outGrp_vortex = 510,
+     5   outGrp_viscose =511  ! Ali 
 
       INTEGER, PARAMETER :: out_velocity = 599, out_pressure = 598,
      2   out_acceleration = 597, out_temperature = 596, out_WSS = 595,
      3   out_vorticity = 594, out_displacement = 593,
      4   out_energyFlux = 592, out_heatFlux = 591,
-     5   out_absVelocity = 590, out_strainInv = 589, out_vortex = 588
+     5   out_absVelocity = 590, out_strainInv = 589, out_vortex = 588,
+     6   out_viscose = 587  ! Ali
       INTEGER, PARAMETER :: RMSH_TETGEN = 1, RMSH_MESHSIM = 2
 
 !     Type of constitutive model for structure equation

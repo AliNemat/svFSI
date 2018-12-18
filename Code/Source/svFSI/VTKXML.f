@@ -319,10 +319,14 @@
                      d(iM)%x(is:ie,a) = tmpV(1:l,a) 
                   END DO
                CASE (outGrp_vort, outGrp_eFlx, outGrp_hFlx, 
-     2            outGrp_stInv, outGrp_vortex)
+     2            outGrp_stInv, outGrp_vortex) 
                   CALL POST(msh(iM), tmpV, lY, lD, oGrp, iEq)
                   DO a=1, msh(iM)%nNo
                      d(iM)%x(is:ie,a) = tmpV(1:l,a)
+                  END DO
+               CASE (outGrp_viscose) !! Ali 
+                  DO a=1, msh(iM)%nNo
+                     d(iM)%x(is:ie,a) = 0.001  !! Ali 
                   END DO
                CASE (outGrp_absV)
                   DO a=1, msh(iM)%nNo

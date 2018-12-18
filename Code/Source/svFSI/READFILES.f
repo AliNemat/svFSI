@@ -357,7 +357,7 @@
          IF (nsd .EQ. 3) propL(7,1) = f_z
          CALL READDOMAIN(lEq, propL, list)
 
-         nDOP = (/8,2,3,0/)
+         nDOP = (/9,2,3,0/)   !! Ali
          outPuts(1) = out_velocity
          outPuts(2) = out_pressure
          outPuts(3) = out_energyFlux
@@ -366,6 +366,7 @@
          outPuts(6) = out_vorticity
          outPuts(7) = out_strainInv
          outPuts(8) = out_vortex
+         outPuts(9) = out_viscose ! Ali 
 
          CALL READLS(lSolver_NS, lEq, list)
 !     HEAT FLUID advection diffusion solver -------------------------
@@ -454,7 +455,7 @@
          phys(2) = phys_struct
          CALL READDOMAIN(lEq, propL, list, phys)
 
-         nDOP = (/10,2,4,0/)
+         nDOP = (/11,2,4,0/) !! Ali`
          outPuts(1)  = out_velocity
          outPuts(2)  = out_pressure
          outPuts(3)  = out_energyFlux
@@ -465,6 +466,7 @@
          outPuts(8)  = out_vortex
          outPuts(9)  = out_displacement
          outPuts(10) = out_strainInv
+         outPuts(11) = out_viscose !! Ali
 
          CALL READLS(lSolver_GMRES, lEq, list)
 
@@ -973,6 +975,12 @@
             lEq%output(iOut)%o    = 0
             lEq%output(iOut)%l    = 1
             lEq%output(iOut)%name = "Vortex"
+         CASE (out_viscose)
+            lEq%output(iOut)%grp  = outGrp_viscose
+            lEq%output(iOut)%o    = 0
+            lEq%output(iOut)%l    = 1
+            lEq%output(iOut)%name = "Viscosity"
+
          CASE DEFAULT
             err = "Internal output undefined"
          END SELECT

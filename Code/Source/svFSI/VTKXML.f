@@ -326,7 +326,7 @@
                   END DO
                CASE (outGrp_viscose) !! Ali 
                   DO a=1, msh(iM)%nNo
-                     d(iM)%x(is:ie,a) = 0.001  !! Ali 
+                     d(iM)%x(is:ie,a) = eq(iEq)%dmn(1)%prop(viscosity) !! Ali  domain 1 is the fluid
                   END DO
                CASE (outGrp_absV)
                   DO a=1, msh(iM)%nNo
